@@ -82,7 +82,7 @@ images.forEach( (element) => {
 
     thumbnails.innerHTML += 
     `
-    <div class="col p-0">
+    <div class="thumb col p-0">
 
         <img src="./assets/img/${imageImages}">
     </div>
@@ -95,6 +95,9 @@ let active = 0
 
 // Seleziono il primo elemento di classe "item" e aggiungo la classe "active"
 document.getElementsByClassName("item")[active].classList.add("active");
+
+document.getElementsByClassName("thumb")[active].classList.add("active");
+
 
 // console.log(collection)
 
