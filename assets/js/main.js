@@ -99,15 +99,10 @@ document.getElementsByClassName("item")[active].classList.add("active");
 // Seleziono il primo elemento di classe "thumb" e aggiungo la classe "active_thumb"
 document.getElementsByClassName("thumb")[active].classList.add("active_thumb");
 
-
-// console.log(collection)
-
 // Creo variabili che mi selezionano i div dentro il DOM che userò poi per le funzioni
 let prev = document.getElementById("prev");
 
 let next = document.getElementById("next");
-
-console.log(prev,next)
 
 // Scriviamo la funzione al click del button next per scorrere le immagini in avanti e arrivata all'ultima immagine torniamo a quella di partenza
 next.addEventListener(`click`, function() {
@@ -120,8 +115,6 @@ next.addEventListener(`click`, function() {
         
         active++
     }
-
-    console.log(images.length-1)
 
     // Seleziono l'elemento con classi ".item.active" e rimuovo la classe "active"
     document.querySelector(".item.active").classList.remove("active");   
@@ -158,3 +151,25 @@ prev.addEventListener(`click`, function() {
     document.getElementsByClassName("thumb")[active].classList.add("active_thumb");
 })
 
+let interval = setInterval( function() {
+
+    if ( active == images.length - 1 ) {
+
+        active = 0;
+    } else {
+        
+        active++
+    }
+
+    // Seleziono l'elemento con classi ".item.active" e rimuovo la classe "active"
+    document.querySelector(".item.active").classList.remove("active");   
+    // Seleziono l'elemento con classe "item" con posizione [active] e aggiungo la classe "active"
+    document.getElementsByClassName("item")[active].classList.add("active");
+
+    // Seleziono l'elemento con classi ".thumb.active_thumb" e rimuovo la classe "active_thumb"
+    document.querySelector(".thumb.active_thumb").classList.remove("active_thumb");
+    // Seleziono l'elemento con classe "thumb" con posizione [active] e aggiungo la classe "active_thumb"
+    document.getElementsByClassName("thumb")[active].classList.add("active_thumb");
+
+
+}, 3000)
