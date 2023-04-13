@@ -96,7 +96,8 @@ let active = 0
 // Seleziono il primo elemento di classe "item" e aggiungo la classe "active"
 document.getElementsByClassName("item")[active].classList.add("active");
 
-document.getElementsByClassName("thumb")[active].classList.add("active");
+// Seleziono il primo elemento di classe "thumb" e aggiungo la classe "active_thumb"
+document.getElementsByClassName("thumb")[active].classList.add("active_thumb");
 
 
 // console.log(collection)
@@ -123,10 +124,15 @@ next.addEventListener(`click`, function() {
     console.log(images.length-1)
 
     // Seleziono l'elemento con classi ".item.active" e rimuovo la classe "active"
-    document.querySelector(".item.active").classList.remove("active");    
-    
+    document.querySelector(".item.active").classList.remove("active");   
     // Seleziono l'elemento con classe "item" con posizione [active] e aggiungo la classe "active"
     document.getElementsByClassName("item")[active].classList.add("active");
+
+    // Seleziono l'elemento con classi ".thumb.active_thumb" e rimuovo la classe "active_thumb"
+    document.querySelector(".thumb.active_thumb").classList.remove("active_thumb");
+    // Seleziono l'elemento con classe "thumb" con posizione [active] e aggiungo la classe "active_thumb"
+    document.getElementsByClassName("thumb")[active].classList.add("active_thumb");
+
 })
 
 // Scriviamo la funzione al click del button prev per scorrere le immagini all'indietro e arrivata alla prima immagine torniamo all'ultima
@@ -143,8 +149,12 @@ prev.addEventListener(`click`, function() {
     
     // Seleziono l'elemento con classi ".item.active" e rimuovo la classe "active"
     document.querySelector(".item.active").classList.remove("active");    
-
     // Seleziono l'elemento con classe "item" con posizione [active] e aggiungo la classe "active"
     document.getElementsByClassName("item")[active].classList.add("active");
+
+    // Seleziono l'elemento con classi ".thumb.active_thumb" e rimuovo la classe "active_thumb"
+    document.querySelector(".thumb.active_thumb").classList.remove("active_thumb");
+    // Seleziono l'elemento con classe "thumb" con posizione [active] e aggiungo la classe "active_thumb"
+    document.getElementsByClassName("thumb")[active].classList.add("active_thumb");
 })
 
