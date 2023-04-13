@@ -45,7 +45,7 @@ for ( i = 0; i < slides.length; i++) {
 // Indice
 let active = 0
 
-// Seleziono il primo elemento e aggiungo la classe "active"
+// Seleziono il primo elemento di classe "item" e aggiungo la classe "active"
 document.getElementsByClassName("item")[active].classList.add("active");
 
 // console.log(collection)
@@ -57,9 +57,10 @@ let next = document.getElementById("next");
 
 console.log(prev,next)
 
-// Scriviamo la funzione al click del button next per scorrere le immagini
+// Scriviamo la funzione al click del button next per scorrere le immagini in avanti e arrivata all'ultima immagine torniamo a quella di partenza
 next.addEventListener(`click`, function() {
 
+    // Quando active è uguale al valore dell'ultimo elemento di slides diventa "0" tornando alla prima immagine, altrimenti continua a cambiare immagine salendo di valore(++)
     if ( active == slides.length - 1 ) {
 
         active = 0;
@@ -70,14 +71,17 @@ next.addEventListener(`click`, function() {
 
     console.log(slides.length-1)
 
+    // Seleziono l'elemento con classi ".item.active" e rimuovo la classe "active"
     document.querySelector(".item.active").classList.remove("active");    
     
+    // Seleziono l'elemento con classe "item" con posizione [active] e aggiungo la classe "active"
     document.getElementsByClassName("item")[active].classList.add("active");
 })
 
-// Scriviamo la funzione al click del button prev per scorrere le immagini
+// Scriviamo la funzione al click del button prev per scorrere le immagini all'indietro e arrivata alla prima immagine torniamo all'ultima
 prev.addEventListener(`click`, function() {
 
+    // Quando active è uguale al valore del primo elemento di slides( active = 0 ), diventa uguale al valore dell'ultimo elemento di slides, andando all'ultima immagine, altrimenti continua a cambiare immagine scendendo di valore(--)
     if ( active == 0 ) {
 
         active = slides.length - 1;
@@ -86,7 +90,38 @@ prev.addEventListener(`click`, function() {
         active--
     }
     
+    // Seleziono l'elemento con classi ".item.active" e rimuovo la classe "active"
     document.querySelector(".item.active").classList.remove("active");    
 
+    // Seleziono l'elemento con classe "item" con posizione [active] e aggiungo la classe "active"
     document.getElementsByClassName("item")[active].classList.add("active");
 })
+
+// Array objects
+const images = [
+    {
+        image: 'img/01.webp',
+        title: 'Marvel\'s Spiderman Miles Morale',
+        text: 'Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.',
+    }, 
+    {
+        image: 'img/02.webp',
+        title: 'Ratchet & Clank: Rift Apart',
+        text: 'Go dimension-hopping with Ratchet and Clank as they take on an evil emperor from another reality.',
+    }, 
+    {
+        image: 'img/03.webp',
+        title: 'Fortnite',
+        text: "Grab all of your friends and drop into Epic Games Fortnite, a massive 100 - player face - off that combines looting, crafting, shootouts and chaos.",
+    }, 
+    {
+        image: 'img/04.webp',
+        title: 'Stray',
+        text: 'Lost, injured and alone, a stray cat must untangle an ancient mystery to escape a long-forgotten city',
+    }, 
+    {
+        image: 'img/05.webp',
+        title: "Marvel's Avengers",
+        text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
+    }
+];
