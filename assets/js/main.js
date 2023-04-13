@@ -30,16 +30,56 @@ let slides = [
     `05.webp`
 ]
 
-// Creo un ciclo per contare gli elementi di slides(array)
-for ( i = 0; i < slides.length; i++) {
+// Array objects
+const images = [
+    {
+        image: '01.webp',
+        title: 'Marvel\'s Spiderman Miles Morale',
+        text: 'Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.',
+    }, 
+    {
+        image: '02.webp',
+        title: 'Ratchet & Clank: Rift Apart',
+        text: 'Go dimension-hopping with Ratchet and Clank as they take on an evil emperor from another reality.',
+    }, 
+    {
+        image: '03.webp',
+        title: 'Fortnite',
+        text: "Grab all of your friends and drop into Epic Games Fortnite, a massive 100 - player face - off that combines looting, crafting, shootouts and chaos.",
+    }, 
+    {
+        image: '04.webp',
+        title: 'Stray',
+        text: 'Lost, injured and alone, a stray cat must untangle an ancient mystery to escape a long-forgotten city',
+    }, 
+    {
+        image: '05.webp',
+        title: "Marvel's Avengers",
+        text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
+    }
+];
 
+// Creo un ciclo per contare gli elementi di slides(array)
+for ( i = 0; i < images.length; i++) {
+
+    console.log(images[i]);
+    
+    // Chiave image
+    let imageImages = images[i].image
+
+    // Chiave name
+    let nameImages = images[i].name
+
+    // Chiave role
+    let roleImages = images[i].role
+1
+    // Inserimento dati nel DOM
     document.querySelector(`.slides`).innerHTML += 
     `
     <div class="item">
-        <img src="./assets/img/${slides[i]}">
+        <img src="./assets/img/${imageImages}">
     </div>
     `
-    console.log(slides[i])
 }
 
 // Indice
@@ -97,31 +137,3 @@ prev.addEventListener(`click`, function() {
     document.getElementsByClassName("item")[active].classList.add("active");
 })
 
-// Array objects
-const images = [
-    {
-        image: 'img/01.webp',
-        title: 'Marvel\'s Spiderman Miles Morale',
-        text: 'Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.',
-    }, 
-    {
-        image: 'img/02.webp',
-        title: 'Ratchet & Clank: Rift Apart',
-        text: 'Go dimension-hopping with Ratchet and Clank as they take on an evil emperor from another reality.',
-    }, 
-    {
-        image: 'img/03.webp',
-        title: 'Fortnite',
-        text: "Grab all of your friends and drop into Epic Games Fortnite, a massive 100 - player face - off that combines looting, crafting, shootouts and chaos.",
-    }, 
-    {
-        image: 'img/04.webp',
-        title: 'Stray',
-        text: 'Lost, injured and alone, a stray cat must untangle an ancient mystery to escape a long-forgotten city',
-    }, 
-    {
-        image: 'img/05.webp',
-        title: "Marvel's Avengers",
-        text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
-    }
-];
