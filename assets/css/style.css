@@ -78,22 +78,46 @@ body {
 }
 
 /* Buttons */
-.btn {
+#prev,
+#next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     z-index: 999;
-    font-size: 50px;    
-    border-radius: 10px;
+    font-size: 2rem;    
     cursor: pointer;
     color: rgb(255, 0, 0);
     background-color: rgba(0, 0, 0, 0.205);
 }
 /* Left button */
 #prev {
-    left: 0;
+    left: -2px;
+    border-radius: 0 10px 10px 0;
 }
 /* Right button */
 #next {
-    right: 0;    
+    right: -2px;    
+    border-radius: 10px 0 0 10px;
+}
+
+/* Buttons Play-Stop */
+.container-thumb .timebtn {
+    top: 0;
+    right: 50%;
+    transform: translateX(50%);
+    z-index: 9999;
+    width: 4rem;
+}
+
+.container-thumb .timebtn .btn_time {
+    position: absolute;
+    padding: 0.3rem 0.4rem;
+}
+
+.container-thumb .timebtn .timebtn_play {
+    right: 0;
+}
+
+.container-thumb .timebtn .timebtn_stop {
+    left: 0;
 }

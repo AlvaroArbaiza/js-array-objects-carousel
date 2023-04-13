@@ -151,7 +151,22 @@ prev.addEventListener(`click`, function() {
     document.getElementsByClassName("thumb")[active].classList.add("active_thumb");
 })
 
-let interval = setInterval( function() {
+
+let playSlides = document.querySelector(".timebtn_play");
+
+let stopSlides = document.querySelector(".timebtn_stop");
+
+const interval = setInterval(myInterval, 3000);
+
+// Funzione al click per far partire lo scorrimento immagini
+playSlides.addEventListener(`click`, function() {
+    
+    setInterval(myInterval, 3000);
+})
+
+// console.log(playSlides, stopSlides)
+
+function myInterval() {
 
     if ( active == images.length - 1 ) {
 
@@ -171,5 +186,10 @@ let interval = setInterval( function() {
     // Seleziono l'elemento con classe "thumb" con posizione [active] e aggiungo la classe "active_thumb"
     document.getElementsByClassName("thumb")[active].classList.add("active_thumb");
 
+}
 
-}, 3000)
+// Funzione che termina lo scorrimento di immagini al click
+stopSlides.addEventListener(`click`, function() {
+    
+    clearInterval(interval);
+})
