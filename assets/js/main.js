@@ -5,6 +5,7 @@ Consegna:
         - titolo
         - descrizione
     2. Creare un carosello come nella foto allegata.
+
 Milestone 0:
     Come nel primo carosello realizzato, focalizziamoci prima sulla creazione del markup statico: costruiamo il container e inseriamo l'immagine grande in modo da poter stilare lo slider.
 Milestone 1:
@@ -12,6 +13,7 @@ Milestone 1:
     Al click dell'utente sulle frecce verso sinistra o destra, l'immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
 Milestone 2:
     Aggiungere il **ciclo infinito** del carosello. Ovvero se la miniatura attiva è la prima e l'utente clicca la freccia verso destra, la miniatura che deve attivarsi sarà l'ultima e viceversa per l'ultima miniatura se l'utente clicca la freccia verso sinistra.
+
 BONUS 1:
     Aggiungere le thumbnails (sottoforma di miniatura) ed al click attivare l’immagine corrispondente.
 BONUS 2:
@@ -21,14 +23,6 @@ BONUS 3:
 
 */
 
-// Creo array immagini da inserire nel DOM successivamente
-let slides = [
-    `01.webp`,
-    `02.webp`,
-    `03.webp`,
-    `04.webp`,
-    `05.webp`
-]
 
 // Array objects
 const images = [
@@ -59,19 +53,16 @@ const images = [
     }
 ];
 
-// Creo un ciclo per contare gli elementi di slides(array)
-for ( i = 0; i < images.length; i++) {
+images.forEach( (element) => {
 
-    console.log(images[i]);
-    
     // Chiave image
-    let imageImages = images[i].image
+    let imageImages = element.image
 
     // Chiave title
-    let titleImages = images[i].title
+    let titleImages = element.title
 
     // Chiave text
-    let textImages = images[i].text
+    let textImages = element.text
 1
     // Inserimento dati nel DOM
     document.querySelector(`.slides`).innerHTML += 
@@ -85,7 +76,7 @@ for ( i = 0; i < images.length; i++) {
         </div>
     </div>
         `
-}
+})
 
 // Indice
 let active = 0
@@ -105,8 +96,8 @@ console.log(prev,next)
 // Scriviamo la funzione al click del button next per scorrere le immagini in avanti e arrivata all'ultima immagine torniamo a quella di partenza
 next.addEventListener(`click`, function() {
 
-    // Quando active è uguale al valore dell'ultimo elemento di slides diventa "0" tornando alla prima immagine, altrimenti continua a cambiare immagine salendo di valore(++)
-    if ( active == slides.length - 1 ) {
+    // Quando active è uguale al valore dell'ultimo elemento di images diventa "0" tornando alla prima immagine, altrimenti continua a cambiare immagine salendo di valore(++)
+    if ( active == images.length - 1 ) {
 
         active = 0;
     } else {
@@ -114,7 +105,7 @@ next.addEventListener(`click`, function() {
         active++
     }
 
-    console.log(slides.length-1)
+    console.log(images.length-1)
 
     // Seleziono l'elemento con classi ".item.active" e rimuovo la classe "active"
     document.querySelector(".item.active").classList.remove("active");    
@@ -126,7 +117,7 @@ next.addEventListener(`click`, function() {
 // Scriviamo la funzione al click del button prev per scorrere le immagini all'indietro e arrivata alla prima immagine torniamo all'ultima
 prev.addEventListener(`click`, function() {
 
-    // Quando active è uguale al valore del primo elemento di slides( active = 0 ), diventa uguale al valore dell'ultimo elemento di slides, andando all'ultima immagine, altrimenti continua a cambiare immagine scendendo di valore(--)
+    // Quando active è uguale al valore del primo elemento di images( active = 0 ), diventa uguale al valore dell'ultimo elemento di images, andando all'ultima immagine, altrimenti continua a cambiare immagine scendendo di valore(--)
     if ( active == 0 ) {
 
         active = slides.length - 1;
