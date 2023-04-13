@@ -8,29 +8,30 @@ body {
     background-color: rgba(100, 3, 0, 0.8);
 }
 
+/* Carousel */
 .carousel {
-    padding: 75px 0;
+    padding: 20px 0;
 }
 
-.item {
-    display: none;
-    overflow: hidden;
-}
-
-.active {
-    display: block;
-}
-
-img {
+.item img {
     max-width: 100%;
-    max-height: calc(100vh - 150px);
+    max-height: calc(100vh - 170px);
     object-fit: contain;
     border: 5px solid black;
     border-radius: 20px;
 }
 
+#thumbnails .col img {
+    max-width: 100%;
+    max-height: calc(100vh - 170px);
+    object-fit: contain;
+    border: 5px solid black;
+    border-radius: 20px;
+}
+
+/* Testo Immagini */
 .text {
-    padding-left: 1rem;
+    padding: 0 0.8rem;
     width: 100%;
     position: absolute;
     bottom: 0;
@@ -39,6 +40,18 @@ img {
     border-radius: 0 0 20px 20px;
 }
 
+/* Contenitore immagini */
+.item {
+    display: none;
+    overflow: hidden;
+}
+
+/* Classe che attiva le immagini */
+.active {
+    display: block;
+}
+
+/* Buttons */
 .btn {
     position: absolute;
     top: 50%;
@@ -50,11 +63,16 @@ img {
     color: rgb(255, 0, 0);
     background-color: rgba(0, 0, 0, 0.205);
 }
-
+/* Left button */
 #prev {
     left: 0;
 }
-
+/* Right button */
 #next {
     right: 0;    
+}
+
+#thumbnails {
+    height: 120px;
+    background-color: yellowgreen;
 }

@@ -64,8 +64,9 @@ images.forEach( (element) => {
     // Chiave text
     let textImages = element.text
 1
+    const slides = document.getElementById("slides");
     // Inserimento dati nel DOM
-    document.querySelector(`.slides`).innerHTML += 
+    slides.innerHTML += 
     `
     <div class="item">
         <img src="./assets/img/${imageImages}">
@@ -75,7 +76,18 @@ images.forEach( (element) => {
             <p>${textImages}</p>
         </div>
     </div>
-        `
+    `;
+
+    const thumbnails = document.getElementById("thumbnails");
+
+    thumbnails.innerHTML += 
+    `
+    <div class="col p-0">
+
+        <img src="./assets/img/${imageImages}">
+    </div>
+    `;
+
 })
 
 // Indice
@@ -120,7 +132,7 @@ prev.addEventListener(`click`, function() {
     // Quando active è uguale al valore del primo elemento di images( active = 0 ), diventa uguale al valore dell'ultimo elemento di images, andando all'ultima immagine, altrimenti continua a cambiare immagine scendendo di valore(--)
     if ( active == 0 ) {
 
-        active = slides.length - 1;
+        active = images.length - 1;
     } else {
 
         active--
