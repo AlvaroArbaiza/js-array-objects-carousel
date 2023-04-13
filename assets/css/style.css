@@ -23,10 +23,9 @@ body {
 
 #thumbnails .col img {
     max-width: 100%;
-    max-height: calc(100vh - 170px);
-    object-fit: contain;
-    border: 5px solid black;
-    border-radius: 20px;
+    height: 100%;
+    object-fit: cover;
+    object-position: 90% -30px;
 }
 
 /* Testo Immagini */
@@ -51,6 +50,25 @@ body {
     display: block;
 }
 
+/* Contenitore thumbnails */
+.container-thumb {
+    position: fixed;
+    bottom: 0;
+    max-width: 100%;
+    padding: 20px;
+}
+
+#thumbnails {
+    height: 120px;
+    background-color: yellowgreen;
+    overflow: hidden;    
+    border: 5px solid;
+}
+
+#thumbnails > .col {
+    top: 50%;
+} 
+
 /* Buttons */
 .btn {
     position: absolute;
@@ -70,9 +88,4 @@ body {
 /* Right button */
 #next {
     right: 0;    
-}
-
-#thumbnails {
-    height: 120px;
-    background-color: yellowgreen;
 }
