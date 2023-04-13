@@ -9,24 +9,6 @@ body {
     background-color: rgba(100, 3, 0, 0.8);
 }
 
-#container {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.carousel {
-    width: 80%;
-    margin: 50px auto;
-    height: 600px;
-}
-
-.slides {
-    height: 100%;
-    position: relative;
-    
-}
 
 img {
     max-width: 100%;
@@ -45,9 +27,6 @@ span {
 .item {
     display: none;
     width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
     overflow: hidden;
 }
 
