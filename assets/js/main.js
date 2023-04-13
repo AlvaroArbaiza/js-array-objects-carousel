@@ -67,19 +67,24 @@ for ( i = 0; i < images.length; i++) {
     // Chiave image
     let imageImages = images[i].image
 
-    // Chiave name
-    let nameImages = images[i].name
+    // Chiave title
+    let titleImages = images[i].title
 
-    // Chiave role
-    let roleImages = images[i].role
+    // Chiave text
+    let textImages = images[i].text
 1
     // Inserimento dati nel DOM
     document.querySelector(`.slides`).innerHTML += 
     `
     <div class="item">
         <img src="./assets/img/${imageImages}">
+        
+        <div class="text">
+            <h2>${titleImages}</h2>
+            <p>${textImages}</p>
+        </div>
     </div>
-    `
+        `
 }
 
 // Indice

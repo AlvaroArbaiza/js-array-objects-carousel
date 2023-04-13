@@ -12,24 +12,31 @@ body {
     padding: 75px 0;
 }
 
-img {
-    max-width: 100%;
-    width: 100%;
-    max-height: calc(100vh - 150px);
-    object-fit: contain;
-    object-position: 0 30%;
-    border: 5px solid black;
-    border-radius: 20px;
-}
-
 .item {
     display: none;
-    width: 100%;
     overflow: hidden;
 }
 
 .active {
     display: block;
+}
+
+img {
+    max-width: 100%;
+    max-height: calc(100vh - 150px);
+    object-fit: contain;
+    border: 5px solid black;
+    border-radius: 20px;
+}
+
+.text {
+    padding-left: 1rem;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.205);
+    border-radius: 0 0 20px 20px;
 }
 
 .btn {
