@@ -105,7 +105,9 @@ let prev = document.getElementById("prev");
 let next = document.getElementById("next");
 
 // Scriviamo la funzione al click del button next per scorrere le immagini in avanti e arrivata all'ultima immagine torniamo a quella di partenza
-next.addEventListener(`click`, function() {
+next.addEventListener(`click`, nextSlide);
+
+function nextSlide() {
 
     // Quando active è uguale al valore dell'ultimo elemento di images diventa "0" tornando alla prima immagine, altrimenti continua a cambiare immagine salendo di valore(++)
     if ( active == images.length - 1 ) {
@@ -126,10 +128,12 @@ next.addEventListener(`click`, function() {
     // Seleziono l'elemento con classe "thumb" con posizione [active] e aggiungo la classe "active_thumb"
     document.getElementsByClassName("thumb")[active].classList.add("active_thumb");
 
-})
+}
 
 // Scriviamo la funzione al click del button prev per scorrere le immagini all'indietro e arrivata alla prima immagine torniamo all'ultima
-prev.addEventListener(`click`, function() {
+prev.addEventListener(`click`, prevSlide);
+
+function prevSlide() {
 
     // Quando active è uguale al valore del primo elemento di images( active = 0 ), diventa uguale al valore dell'ultimo elemento di images, andando all'ultima immagine, altrimenti continua a cambiare immagine scendendo di valore(--)
     if ( active == 0 ) {
@@ -149,44 +153,29 @@ prev.addEventListener(`click`, function() {
     document.querySelector(".thumb.active_thumb").classList.remove("active_thumb");
     // Seleziono l'elemento con classe "thumb" con posizione [active] e aggiungo la classe "active_thumb"
     document.getElementsByClassName("thumb")[active].classList.add("active_thumb");
-})
+}
 
-
+// Variabile che seleziona "timebtn_play"
 let playSlides = document.querySelector(".timebtn_play");
-
+// Variabile che seleziona "timebtn_stop"
 let stopSlides = document.querySelector(".timebtn_stop");
+// Variabile che seleziona "timebtn_prev"
+let prevSlides = document.querySelector(".timebtn_prev");
 
-const interval = setInterval(myInterval, 3000);
+// setInterval fisso per far scorrere le immagini di default
+let interval = setInterval(nextSlide, 3000);
 
 // Funzione al click per far partire lo scorrimento immagini
 playSlides.addEventListener(`click`, function() {
     
-    setInterval(myInterval, 3000);
+    interval = setInterval(nextSlide, 3000);
 })
 
-// console.log(playSlides, stopSlides)
-
-function myInterval() {
-
-    if ( active == images.length - 1 ) {
-
-        active = 0;
-    } else {
-        
-        active++
-    }
-
-    // Seleziono l'elemento con classi ".item.active" e rimuovo la classe "active"
-    document.querySelector(".item.active").classList.remove("active");   
-    // Seleziono l'elemento con classe "item" con posizione [active] e aggiungo la classe "active"
-    document.getElementsByClassName("item")[active].classList.add("active");
-
-    // Seleziono l'elemento con classi ".thumb.active_thumb" e rimuovo la classe "active_thumb"
-    document.querySelector(".thumb.active_thumb").classList.remove("active_thumb");
-    // Seleziono l'elemento con classe "thumb" con posizione [active] e aggiungo la classe "active_thumb"
-    document.getElementsByClassName("thumb")[active].classList.add("active_thumb");
-
-}
+// Funzione al click per far partire lo scorrimento immagini inversamente
+prevSlides.addEventListener(`click`, function() {
+    
+    interval = setInterval(prevSlide, 3000);
+})
 
 // Funzione che termina lo scorrimento di immagini al click
 stopSlides.addEventListener(`click`, function() {

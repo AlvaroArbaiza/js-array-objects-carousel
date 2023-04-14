@@ -106,7 +106,7 @@ body {
     right: 50%;
     transform: translateX(50%);
     z-index: 9999;
-    width: 4rem;
+    width: 6rem;
 }
 
 .container-thumb .timebtn .btn_time {
@@ -119,5 +119,10 @@ body {
 }
 
 .container-thumb .timebtn .timebtn_stop {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.container-thumb .timebtn .timebtn_prev {
     left: 0;
 }
