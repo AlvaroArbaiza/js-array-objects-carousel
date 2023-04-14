@@ -53,51 +53,66 @@ const images = [
     }
 ];
 
-images.forEach( (element) => {
+images.forEach( (element, index) => {
 
-    // Chiave image
-    let imageImages = element.image
-
-    // Chiave title
-    let titleImages = element.title
-
-    // Chiave text
-    let textImages = element.text
+    // Destrutturiamo e otteniamo le chiavi (image, tittle, text)
+    const {image, title, text} = element
 1
     const slides = document.getElementById("slides");
-    // Inserimento dati nel DOM
-    slides.innerHTML += 
-    `
-    <div class="item">
-        <img src="./assets/img/${imageImages}">
-        
-        <div class="text">
-            <h2>${titleImages}</h2>
-            <p>${textImages}</p>
-        </div>
-    </div>
-    `;
-
     const thumbnails = document.getElementById("thumbnails");
 
-    thumbnails.innerHTML += 
-    `
-    <div class="thumb col p-0">
+    // SE INDEX = 0 ovvero nel primo oggetto inserisce "active" a tutto
+    if ( index === 0) {
+        
+        // Inserimento dati nel DOM
+        slides.innerHTML += 
+        `
+        <div class="item active">
+            <img src="./assets/img/${image}">
+            
+            <div class="text">
+                <h2>${title}</h2>
+                <p>${text}</p>
+            </div>
+        </div>
+        `;    
+    
+        thumbnails.innerHTML += 
+        `
+        <div class="thumb active_thumb col p-0">
+    
+            <img src="./assets/img/${image}">
+        </div>
+        `;
+        
+    // ALRIMENTI continua a inserire senza "active" 
+    } else {
 
-        <img src="./assets/img/${imageImages}">
-    </div>
-    `;
+        slides.innerHTML += 
+        `
+        <div class="item">
+            <img src="./assets/img/${image}">
+            
+            <div class="text">
+                <h2>${title}</h2>
+                <p>${text}</p>
+            </div>
+        </div>
+        `;
+    
+        thumbnails.innerHTML += 
+        `
+        <div class="thumb col p-0">
+    
+            <img src="./assets/img/${image}">
+        </div>
+        `;
+    }
 
 })
 
 // Indice
 let active = 0
-
-// Seleziono il primo elemento di classe "item" e aggiungo la classe "active"
-document.getElementsByClassName("item")[active].classList.add("active");
-
-// Seleziono il primo elemento di classe "thumb" e aggiungo la classe "active_thumb"
-document.getElementsByClassName("thumb")[active].classList.add("active_thumb");
 
 // Creo variabili che mi selezionano i div dentro il DOM che userò poi per le funzioni
 let prev = document.getElementById("prev");
