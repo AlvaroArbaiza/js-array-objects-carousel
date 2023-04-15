@@ -57,7 +57,8 @@ images.forEach( (element, index) => {
 
     // Destrutturiamo e otteniamo le chiavi (image, tittle, text)
     const {image, title, text} = element
-1
+
+    // Seleziono elementi "slides" e "thumbnails"
     const slides = document.getElementById("slides");
     const thumbnails = document.getElementById("thumbnails");
 
